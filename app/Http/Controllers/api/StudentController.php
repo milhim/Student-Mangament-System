@@ -53,4 +53,10 @@ class StudentController extends Controller
 
         return response(Student::destroy($id),200);
     }
+
+    public function search($name){
+        $students=Student::where('firstname','like','%'.$name.'%')->get();
+        return response($students,200);
+
+    }
 }
